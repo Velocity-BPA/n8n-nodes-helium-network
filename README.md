@@ -8,25 +8,25 @@
 >
 > For licensing information, visit https://velobpa.com/licensing or contact licensing@velobpa.com.
 
-This n8n community node provides comprehensive integration with the Helium Network blockchain and IoT infrastructure. With 6 resources and extensive operations, it enables monitoring of hotspots, tracking rewards, managing validator data, and analyzing blockchain metrics for the world's largest decentralized wireless network.
+An n8n community node for interacting with the Helium Network blockchain and IoT ecosystem. This node provides access to 7 core resources including accounts, hotspots, blocks, transactions, cities, validators, and elections, enabling comprehensive monitoring and analysis of the Helium Network infrastructure.
 
 ![n8n Community Node](https://img.shields.io/badge/n8n-Community%20Node-blue)
 ![License](https://img.shields.io/badge/license-BSL--1.1-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)
 ![Helium Network](https://img.shields.io/badge/Helium-Network-purple)
-![Blockchain](https://img.shields.io/badge/Blockchain-IoT-green)
-![API](https://img.shields.io/badge/API-REST-orange)
+![IoT](https://img.shields.io/badge/IoT-Infrastructure-green)
+![Blockchain](https://img.shields.io/badge/Blockchain-HNT-orange)
 
 ## Features
 
-- **Hotspot Management** - Monitor hotspot status, earnings, witnesses, and activity across the Helium Network
-- **Account Analytics** - Track account balances, transaction history, and HNT token movements
-- **Validator Operations** - Access validator performance metrics, stake information, and consensus participation
-- **Rewards Tracking** - Retrieve detailed reward distributions, mining rewards, and token economics data
-- **Blockchain Insights** - Query blockchain statistics, block data, and network health metrics
-- **Election Monitoring** - Track consensus group elections and validator selection processes
-- **Real-time Data** - Access live network data for automated monitoring and alerting workflows
-- **Comprehensive Coverage** - Full API integration with all major Helium Network endpoints
+- **Account Management** - Retrieve account details, balances, activity, and HNT transactions
+- **Hotspot Monitoring** - Access hotspot information, rewards, witnesses, and network activity
+- **Block Analysis** - Query blockchain blocks, transactions, and network consensus data
+- **Transaction Tracking** - Monitor HNT transfers, rewards, and network transactions
+- **City Analytics** - Analyze hotspot distribution and activity by geographic location
+- **Validator Operations** - Track validator performance, elections, and consensus participation
+- **Election Insights** - Monitor consensus group elections and validator selection
+- **Real-time Data** - Access live network statistics and blockchain information
 
 ## Installation
 
@@ -61,114 +61,118 @@ n8n start
 
 | Field | Description | Required |
 |-------|-------------|----------|
-| API Key | Your Helium Console API key for authenticated requests | Yes |
-| Environment | API environment (mainnet/testnet) | Yes |
-| Rate Limit | Request rate limit per minute (default: 60) | No |
+| API Key | Your Helium Console API key | Yes |
+| Base URL | Helium API base URL (auto-configured) | No |
 
 ## Resources & Operations
 
-### 1. Hotspots
+### 1. Account
 
 | Operation | Description |
 |-----------|-------------|
-| Get Hotspot | Retrieve detailed information about a specific hotspot |
-| List Hotspots | Get a list of all hotspots with filtering options |
-| Get Hotspot Activity | Fetch activity history for a hotspot |
-| Get Hotspot Rewards | Retrieve reward history for a specific hotspot |
-| Get Hotspot Witnesses | Get list of hotspots witnessed by a specific hotspot |
-| Get Hotspot Challenges | Fetch challenge activity for a hotspot |
-| Search Hotspots | Search hotspots by name, location, or owner |
+| Get Account | Retrieve account information by address |
+| Get Balance | Get current account balance and nonce |
+| Get Activity | List account activity and transactions |
+| Get Rewards | Retrieve account reward history |
+| Get Hotspots | List hotspots owned by account |
+| Get Validators | List validators associated with account |
 
-### 2. Accounts
-
-| Operation | Description |
-|-----------|-------------|
-| Get Account | Retrieve account information and balance |
-| Get Account Activity | Fetch transaction activity for an account |
-| Get Account Rewards | Get reward history for a specific account |
-| Get Account Hotspots | List all hotspots owned by an account |
-| Get Account Validators | Retrieve validators associated with an account |
-| Get Account Transactions | Fetch transaction history with filtering |
-
-### 3. Validators
+### 2. Hotspot
 
 | Operation | Description |
 |-----------|-------------|
-| Get Validator | Retrieve detailed validator information |
-| List Validators | Get list of all validators with status |
-| Get Validator Activity | Fetch validator consensus and activity data |
-| Get Validator Rewards | Retrieve reward history for a validator |
-| Get Validator Elections | Get election history for a validator |
-| Search Validators | Search validators by name or address |
+| Get Hotspot | Retrieve hotspot details by address |
+| Get Activity | Get hotspot activity and earnings |
+| Get Rewards | List hotspot reward history |
+| Get Witnesses | Get hotspot witness information |
+| Get Witnessed | List hotspots witnessed by this hotspot |
+| Get Challenges | Retrieve proof-of-coverage challenges |
+| Search Hotspots | Search hotspots by name or location |
 
-### 4. Rewards
-
-| Operation | Description |
-|-----------|-------------|
-| Get Rewards Summary | Retrieve network-wide reward statistics |
-| Get Hotspot Rewards | Fetch detailed reward data for hotspots |
-| Get Validator Rewards | Get validator reward distributions |
-| Get Account Rewards | Retrieve account-specific reward history |
-| Calculate Rewards | Estimate potential rewards for activities |
-
-### 5. Blockchain
+### 3. Block
 
 | Operation | Description |
 |-----------|-------------|
-| Get Block | Retrieve specific block information |
-| Get Latest Block | Fetch the most recent block data |
-| Get Block Transactions | List all transactions in a block |
-| Get Network Stats | Retrieve network statistics and metrics |
-| Get Chain Variables | Fetch blockchain configuration variables |
-| Get Oracle Prices | Get HNT price data from oracle |
+| Get Block | Retrieve block information by height or hash |
+| Get Latest | Get the latest block information |
+| Get Transactions | List transactions in a specific block |
+| List Blocks | Retrieve multiple blocks with pagination |
+| Get Statistics | Get blockchain statistics and metrics |
 
-### 6. Elections
+### 4. Transaction
 
 | Operation | Description |
 |-----------|-------------|
-| Get Current Election | Retrieve ongoing consensus group election |
-| Get Election History | Fetch historical election data |
-| Get Election Results | Get results of completed elections |
-| Get Consensus Members | List current consensus group members |
+| Get Transaction | Retrieve transaction details by hash |
+| List Transactions | List recent network transactions |
+| Get Pending | Retrieve pending transactions |
+| Search Transactions | Search transactions by type or account |
+| Get Statistics | Get transaction volume and statistics |
+
+### 5. City
+
+| Operation | Description |
+|-----------|-------------|
+| Get City | Retrieve city information and hotspot count |
+| List Cities | List all cities with hotspot activity |
+| Get Hotspots | List hotspots in a specific city |
+| Get Statistics | Get city-level network statistics |
+| Search Cities | Search cities by name or country |
+
+### 6. Validator
+
+| Operation | Description |
+|-----------|-------------|
+| Get Validator | Retrieve validator information by address |
+| List Validators | List all active validators |
+| Get Activity | Get validator activity and performance |
+| Get Rewards | Retrieve validator reward history |
+| Get Statistics | Get validator network statistics |
+| Get Elections | List elections validator participated in |
+
+### 7. Election
+
+| Operation | Description |
+|-----------|-------------|
+| Get Election | Retrieve election details by height |
+| List Elections | List recent consensus group elections |
+| Get Members | Get election consensus group members |
+| Get Statistics | Get election and consensus statistics |
 
 ## Usage Examples
 
 ```javascript
-// Monitor hotspot earnings and status
+// Get account balance and information
 {
-  "hotspot_address": "112qB3YaH5bZkCnKA5uRH7tBtGNv2Y5B4smv1jsmvh6PpBP4YxHEd",
-  "time_period": "24h",
-  "include_rewards": true,
-  "include_activity": true
+  "address": "13GCcF7oGb6waFBzYDMmydmXx4vNDUZGX4LE3QUh8eSBG53s5bx",
+  "operation": "getAccount"
 }
 ```
 
 ```javascript
-// Track account portfolio and transactions
+// Monitor hotspot rewards and activity
 {
-  "account_address": "13buBykFQf5VaQtv7mWj2PBY9Lq4i1DeXhg7C4Vbu3ppzqqNkTH",
-  "activity_filter": "rewards_v2",
-  "min_time": "2024-01-01T00:00:00Z",
-  "cursor": null
+  "address": "112qB3YaH5bZkCnKA5uRH7tBtGNv2Y5B4smv1jsmvh6fA1QCa4o",
+  "operation": "getRewards",
+  "minTime": "2024-01-01T00:00:00Z",
+  "maxTime": "2024-01-31T23:59:59Z"
 }
 ```
 
 ```javascript
-// Analyze validator performance
+// Retrieve latest blockchain information
 {
-  "validator_address": "112qB3YaH5bZkCnKA5uRH7tBtGNv2Y5B4smv1jsmvh6P4YxHEd",
-  "metrics": ["consensus_groups", "penalties", "tenure"],
-  "period": "30d"
+  "operation": "getLatest",
+  "includeTransactions": true
 }
 ```
 
 ```javascript
-// Get network blockchain statistics
+// Search hotspots in a specific city
 {
-  "include_price": true,
-  "include_supply": true,
-  "block_range": 100,
-  "format": "json"
+  "cityId": "san-francisco-california-united-states",
+  "operation": "getHotspots",
+  "limit": 50
 }
 ```
 
@@ -176,12 +180,12 @@ n8n start
 
 | Error | Description | Solution |
 |-------|-------------|----------|
-| 401 Unauthorized | Invalid or missing API key | Verify API key in credentials configuration |
-| 404 Not Found | Hotspot, account, or validator address not found | Check address format and existence on network |
-| 429 Rate Limited | Too many requests sent to API | Implement delays between requests or reduce frequency |
-| 422 Invalid Parameters | Malformed request parameters | Validate input data and parameter formats |
-| 500 Server Error | Helium API service unavailable | Retry request after delay or check Helium status |
-| Network Timeout | Request timeout or connectivity issue | Check internet connection and API endpoint status |
+| Invalid API Key | Authentication failed with provided credentials | Verify API key is correct and active |
+| Rate Limit Exceeded | Too many requests sent to Helium API | Implement delays between requests |
+| Address Not Found | Specified account or hotspot address doesn't exist | Verify address format and existence |
+| Invalid Parameters | Request parameters are malformed or missing | Check parameter format and requirements |
+| Network Timeout | Request timed out connecting to Helium API | Retry request or check network connectivity |
+| Service Unavailable | Helium API is temporarily unavailable | Wait and retry, check Helium status page |
 
 ## Development
 
@@ -226,5 +230,5 @@ Contributions are welcome! Please ensure:
 ## Support
 
 - **Issues**: [GitHub Issues](https://github.com/Velocity-BPA/n8n-nodes-helium-network/issues)
-- **Helium Documentation**: [Helium Developer Documentation](https://docs.helium.com/)
-- **Community**: [Helium Discord Community](https://discord.gg/helium)
+- **Helium Documentation**: [Helium Developer Portal](https://docs.helium.com/)
+- **Helium Community**: [Helium Discord](https://discord.gg/helium)
